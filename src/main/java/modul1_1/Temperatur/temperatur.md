@@ -1,0 +1,1 @@
+Heltallige datatyper såsom int og long kan vise temperaturer med en vis præcision, men eftersom vi stort set altid vil arbejde med komma tal i temperatur målingen, så vil float og double være at foretrække.

@@ -1,0 +1,7 @@
+@startuml
+    class EnrollmentSystem {
+        +students: Student[]
+        +courses: Course[]
+        + enroll(Student): void
+    }
+@enduml
