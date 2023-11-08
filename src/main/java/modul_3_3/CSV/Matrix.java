@@ -2,7 +2,6 @@ package modul_3_3.CSV;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Matrix {
@@ -44,18 +43,28 @@ public class Matrix {
         return this.data[yIndex][xIndex];
     }
 
+    public int getSmallestSize() {
+        int size = 0;
+
+        if (this.data.length < this.data[0].length) {
+            size = this.data.length;
+        } else {
+            size = this.data[0].length;
+        }
+        return size;
+    }
+
     public void save(String filename) {
         File myFile = new File(FOLDER_PATH + filename);
 
         try (PrintWriter printWriter = new PrintWriter(myFile)) {
-            for (int y = 0; y< this.data.length; y++) {
-                double[] lineData = this.data[y];
-
+            for (int row = 0; row < this.data.length; row++) {
+                double[] lineData = this.data[row];
                 StringBuilder outLine = new StringBuilder();
 
-                for (int i = 0; i < lineData.length; i++) {
-                    outLine.append(lineData[i]);
-                    if (i == lineData.length -1){
+                for (int column = 0; column < lineData.length; column++) {
+                    outLine.append(lineData[column]);
+                    if (column == lineData.length - 1) {
                         continue;
                     }
                     outLine.append(",");
@@ -69,7 +78,13 @@ public class Matrix {
     }
 
     public static void main(String[] args) {
-        Matrix tester = new Matrix("input.csv");
+        Matrix tester1 = new Matrix("input.csv");
+        Matrix tester = new Matrix(4, 6);
+
+        for (int i = 0; i < tester.getSmallestSize(); i++) {
+            tester.setCell(i, i, 1);
+        }
+
         tester.save("saved.csv");
     }
 }
