@@ -27,9 +27,13 @@ public class Score {
     }
 
     public static void betterPassFailPrinter(int points){
+        final int requiredPointsForPassing = 50;
+
+        boolean passed = points >= requiredPointsForPassing;
+
         String passFailText = "FAILED";
 
-        if (points >= 50){
+        if (passed){
             passFailText = "PASSED";
         }
 
