@@ -12,7 +12,7 @@ public class Happiness {
     }
 
     /**
-     * REfactored to work slightly differently
+     * Refactored to work slightly differently
      * @param price the price of the item
      * @return true if the item was bought successfully, false if the account does not have enough to buy the item
      */
@@ -49,15 +49,12 @@ public class Happiness {
     }
 
     public static void main(String[] args) {
-        boolean happy;
         for (int i = 0; i < ITEM_COUNT; i++) {
-            boolean hasBoughtItemThisITeration = false;
-
             sellHouseIfNecessary(ITEM_PRICE);
 
-            hasBoughtItemThisITeration = buyItem(ITEM_PRICE);
+            boolean hasBoughtItemThisIteration = buyItem(ITEM_PRICE);
 
-            happy = (accountIsPositive() && hasBoughtItemThisITeration);
+            boolean happy = (accountIsPositive() && hasBoughtItemThisIteration);
             System.out.println("I am " + (happy ? "" : "not ") + "happy and my account is " + account);
             System.out.print("");
         }

@@ -2,7 +2,7 @@ package modul_3_5.solutions;
 
 public class Score {
     public static void main(String[] args) {
-        int points = 50;// imagine an arbitrary number of points between 0 and 100
+        int points = 40;// imagine an arbitrary number of points between 0 and 100
 
         System.out.print("You ");
 
@@ -27,10 +27,16 @@ public class Score {
     }
 
     public static void betterPassFailPrinter(int points){
+        // Business logic
         final int requiredPointsForPassing = 50;
 
         boolean passed = points >= requiredPointsForPassing;
 
+        // Presentation layer
+        printPassedOrFailed(passed);
+    }
+
+    private static void printPassedOrFailed(boolean passed) {
         String passFailText = "FAILED";
 
         if (passed){

@@ -10,7 +10,7 @@ public class RandomTest {
     static int[] init(int length) {
         int[] a = new int[length];
         for (int i = 0; i < a.length; i++) {
-            a[i] = r.nextInt() % 100; // This is correct
+            a[i] = r.nextInt() % 100;
         }
         return a;
     }
